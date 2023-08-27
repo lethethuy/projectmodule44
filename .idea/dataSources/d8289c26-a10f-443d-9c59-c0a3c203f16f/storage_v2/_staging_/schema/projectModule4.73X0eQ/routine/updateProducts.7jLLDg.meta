@@ -1,0 +1,2 @@
+#n:updateProducts
+#i:(int,varchar(255),varchar(255),text,int,int,double,tinyint(1))P
