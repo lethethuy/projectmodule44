@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ra.demo6.model.Product;
 import ra.demo6.model.ProductDTO;
+import ra.demo6.service.OrderService;
 import ra.demo6.service.ProductService;
 import ra.demo6.service.UserService;
 
@@ -24,6 +25,8 @@ public class AdminController {
     private ProductService productService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping("/index2")
     public String index2() {
@@ -110,6 +113,12 @@ public class AdminController {
         p.setStatus(productDTO.isStatus());
         productService.save(p);
         return "redirect:/admin/product2";
+    }
+
+    @GetMapping("/order")
+    public String thankyou(Model model) {
+        model.addAttribute("order", orderService.findAll());
+        return "admin/order";
     }
 
 

@@ -28,7 +28,7 @@
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="index2.html">
-                <span class="align-middle">AdminKit</span>
+                <span class="align-middle">Admin</span>
             </a>
 
             <ul class="sidebar-nav">
@@ -53,6 +53,11 @@
                 <li class="sidebar-item active">
                     <a class="sidebar-link" href="#">
                         <i class="align-middle" data-feather="user"></i> <span class="align-middle">User</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/admin/order">
+                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">Order</span>
                     </a>
                 </li>
 
@@ -220,8 +225,8 @@
                         </a>
 
                         <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                            <img th:src="@{/images/avatars/avatar.jpg}" class="avatar img-fluid rounded me-1" alt="Charles Hall"/>
-                            <span class="text-dark">Chris Hung</span>
+                            <img src="https://img6.thuthuatphanmem.vn/uploads/2022/11/18/anh-avatar-don-gian-cho-nam_081757600.png" class="avatar img-fluid rounded me-1" alt="Charles Hall"/>
+                            <span class="text-dark">ADMIN</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item" href="#"><i class="align-middle me-1"
@@ -249,9 +254,6 @@
                         <h3 class="card-title">Demo User Table</h3>
                         <nav class="navbar navbar-expand-lg bg-light">
                             <div class="container-fluid">
-                                <a class="navbar-brand" href="#">
-                                    <button type="button" class="btn btn-success">+ Create new Account</button>
-                                </a>
                                 <form class="d-flex" role="search">
                                     <input class="form-control me-2 fst-italic" type="search"
                                            placeholder="Enter user's name... "
@@ -267,13 +269,10 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Username</th>
                                 <th>FullName</th>
-                                <th>Image</th>
                                 <th>PassWord</th>
                                 <th>Date of birth</th>
-                                <th>Country</th>
-                                <th>City</th>
+                                <th>Address</th>
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th colspan="2">Action</th>
@@ -282,15 +281,10 @@
                             <tbody>
                             <tr th:each="u,loop:${listUser}">
                                 <td th:text="${loop.count}"></td>
-                                <td th:text="${u.userName}"></td>
                                 <td th:text="${u.fullName}"></td>
-                                <td>
-                                    <img th:src="${u.avatar}" width="80px">
-                                </td>
                                 <td th:text="${u.passWord}"></td>
                                 <td th:text="${u.birthdate}"></td>
                                 <td th:text="${u.country}"></td>
-                                <td th:text="${u.city}"></td>
                                 <td th:text="${u.phone}"></td>
                                 <td th:text="${u.email}"></td>
                                 <td>

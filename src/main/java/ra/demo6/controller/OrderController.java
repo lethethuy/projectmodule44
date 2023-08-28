@@ -23,10 +23,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/order")
 public class OrderController {
+
     @Autowired
     private OrderDetailService orderDetailService;
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private ProductService productService;
     @PostMapping("/checkout")
     public String home(HttpSession session, @RequestParam("phone") int phone, @RequestParam("address") String address, @RequestParam("fullname") String fullName)  {
         // Lay ra tai khoan dang dang nhap tu session
@@ -53,9 +56,16 @@ public class OrderController {
              ) {
             orderDetailService.save(new OrderDetail(c.getProduct().getId(),c.getProduct().getPrice(), c.getQuantity(),newOrderId));
         }
-        return "/";
+        return "redirect: checkout2";
     }
 
+
+    @GetMapping("/checkout2")
+    public String thankyou(Model model) {
+        model.addAttribute("thankyou", orderService.findAll());
+        System.out.println(orderService.findAll());
+        return "web/thankyou";
+    }
 
 
 }
