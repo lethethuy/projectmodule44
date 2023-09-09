@@ -56,7 +56,7 @@ public class OrderController {
              ) {
             orderDetailService.save(new OrderDetail(c.getProduct().getId(),c.getProduct().getPrice(), c.getQuantity(),newOrderId));
         }
-        return "redirect: checkout2";
+        return "redirect:checkout2";
     }
 
 

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ra.demo6.model.CartItem;
 import ra.demo6.model.Product;
+import ra.demo6.model.User;
 import ra.demo6.service.CartService;
 import ra.demo6.service.ProductService;
 
@@ -45,6 +46,10 @@ public class CartController {
 
     @GetMapping("/addToCart/{idPro}")
     public String addToCart(@PathVariable("idPro") int idPro, HttpSession session) {
+
+        if (session.getAttribute("user_login")== null){
+            return "redirect:/login";
+        }
 
         Product p = productService.findByID(idPro);
 

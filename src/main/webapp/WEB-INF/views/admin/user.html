@@ -275,6 +275,7 @@
                                 <th>Address</th>
                                 <th>Phone</th>
                                 <th>Email</th>
+                                <th>Status</th>
                                 <th colspan="2">Action</th>
                             </tr>
                             </thead>
@@ -287,11 +288,12 @@
                                 <td th:text="${u.country}"></td>
                                 <td th:text="${u.phone}"></td>
                                 <td th:text="${u.email}"></td>
+                                <td th:text="${u.status}"></td>
                                 <td>
-                                    <th:block th:if="${u.status == false}">
+                                    <th:block th:if="${u.status == true}">
                                         <a th:href="@{|/admin/lock/${u.id}|}" class="fa-solid fa-lock-open" style="color: red"></a>
                                     </th:block>
-                                    <th:block th:unless="${u.status == false}">
+                                    <th:block th:unless="${u.status == true}">
                                         <a th:href="@{|/admin/lock/${u.id}|}" class="fa-solid fa-lock" style="color: greenyellow"></a>
                                     </th:block>
                                 </td>
